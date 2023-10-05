@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Applicazione ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+
+
+        body {
+            background-color: #eee;
+        }
+
+        .navbar-nav > li > a {
+            text-transform: uppercase;
+            font-size: 15px;
+            margin-right: 20px;
+     
+        }
+
+
+        .navbar-toggler {
+            padding: .20rem .50rem;
+            font-size: 1.25rem;
+            line-height: 1;
+            background-color: transparent;
+            border: 1px solid white;
+        }
+
+        .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-brand {
+
+            font-family: 'Allerta Stencil', sans-serif;
+            margin-bottom: 4px;
+            font-size: 27px;
+        }
+
+        .navbar-red:hover .wrapper {
+            clip-path: polygon(81% 0, 100% 0, 100% 50%, 100% 100%, 65% 100%);
+        }
+
+        .masthead {
+            padding: 3rem 0 7rem;
+            position: relative;
+            z-index: 0
+        }
+
+            .masthead svg.wave {
+                position: absolute;
+                bottom: -1px;
+                left: 0
+            }
+
+            .masthead h1 {
+                color: #fff;
+                font-weight: 700;
+                font-size: 2rem;
+                line-height: 1.1;
+                z-index: 1
+            }
+
+            .masthead h2 {
+
+                font-weight: 600;
+                z-index: 1;
+                font-size: 1.2rem
+            }
+
+            .masthead a {
+            
+                text-decoration: underline;
+                z-index: 1
+            }
+
+
+                .masthead a:active {
+                    text-decoration: none
+                }
+
+
+            .masthead .masthead-cards {
+                position: relative;
+                z-index: 1
+            }
+
+                .masthead .masthead-cards .shape {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(255, 255, 255, .3);
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%
+                }
+
+                .masthead .masthead-cards .card {
+                    opacity: 1;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-weight: 800;
+                    letter-spacing: .05rem;
+                    color: #212529;
+                    transition: .15s all
+                }
+
+                    .masthead .masthead-cards .card:hover {
+                        margin-top: -.25rem;
+                        margin-bottom: .25rem
+                    }
+
+                    .masthead .masthead-cards .card:active {
+                        margin-top: inherit;
+                        margin-bottom: inherit
+                    }
+
+
+        .masthead-page {
+            padding: 1rem 0 4rem
+        }
+
+
+        .border-bottom-blue, .border-bottom-green, .border-bottom-red, .border-bottom-yellow {
+            border-bottom: .4rem solid !important;
+        }
+
+        ul.timeline {
+            list-style-type: none;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+            /* Timeline vertical line */
+            ul.timeline:before {
+                content: ' ';
+                background: #fff;
+                display: inline-block;
+                position: absolute;
+                left: 16px;
+                width: 4px;
+                height: 100%;
+                z-index: 400;
+                border-radius: 1rem;
+            }
+
+        li.timeline-item {
+            margin: 20px 0;
+        }
+
+        /* Timeline item arrow */
+        .timeline-arrow {
+            border-top: 0.5rem solid transparent;
+            border-right: 0.5rem solid #fff;
+            border-bottom: 0.5rem solid transparent;
+            display: block;
+            position: absolute;
+            left: 2rem;
+        }
+
+        /* Timeline item circle marker */
+        li.timeline-item::before {
+            content: ' ';
+            background: #ddd;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            left: 11px;
+            width: 14px;
+            height: 14px;
+            z-index: 400;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+
+        body {
+            background: #E8CBC0;
+            background: -webkit-linear-gradient(to right, #E8CBC0, #636FA4);
+            background: linear-gradient(to right, #E8CBC0, #636FA4);
+            min-height: 100vh;
+        }
+
+        .text-gray {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark border-bottom">
+        <div class="wrapper">
+
+        </div>
+        <div class="container-fluid all-show">
+            <a class="navbar-brand" href="/Home/Index">Shipping.Net <i class="fa fa-codepen"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Home/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Search">Cerca Spedizione</a>
+                    </li>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Index">Gestisci Clienti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/ManageShipments">Gestisci Spedizioni</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Query">Query Area</a>
+                        </li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/LogOut">Log Out</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/LogIn">Log In</a>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿@model ShippingManager.Models.Customer
+
+@{
+    ViewBag.Title = "AddCustomer";
+}
+
+<h2>AddCustomer</h2>
+
+<div class="border border-light text-light fs-4 p-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.IsAzienda, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-12 col-lg-6">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.IsAzienda, new { htmlAttributes = new { @class = "IsAzienda" } })
+                        @Html.ValidationMessageFor(model => model.IsAzienda, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div id="CfCont" class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Cf, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Cf, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cf, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div id="PivaCont" class="form-group d-flex flex-column align-items-center d-none">
+                @Html.LabelFor(model => model.PIva, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.PIva, new { htmlAttributes = new { @class = "form-control Piva" } })
+                    @Html.ValidationMessageFor(model => model.PIva, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-12 mt-3 text-center">
+                    <input type="submit" value="Salva" class="btn btn-outline-light fs-4" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/MyScript.js"></script>
+}

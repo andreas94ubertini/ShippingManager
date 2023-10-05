@@ -1,0 +1,91 @@
+﻿@model ShippingManager.Models.Shipping
+
+@{
+    ViewBag.Title = "AddShipping";
+}
+
+<h2 class="text-center text-light">Registra una nuova spedizione</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="border p-lg-5 mt-5">
+        <div class="form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.ShippingDate, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.ShippingDate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.ShippingDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                    @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Destination, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Destination, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Destination, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Addressee, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Addressee, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Addressee, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.ExDelivery, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.EditorFor(model => model.ExDelivery, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.ExDelivery, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.IdCustomer, htmlAttributes: new { @class = "control-label col-12 col-lg-6 text-light fs-5" })
+                <div class="col-12 col-lg-6">
+                    @Html.DropDownListFor(model => model.IdCustomer, new SelectList(ViewBag.ListCustomerOpt, "Value", "Text"), new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.IdCustomer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-12 text-center fs-4">
+                    <input type="submit" value="Conferma" class="btn btn-outline-light" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

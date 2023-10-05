@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ShippingManager.Models.Shipping>
+
+@{
+    ViewBag.Title = "ManageShipments";
+}
+@Html.ActionLink("Registra Nuova Spedizione", "AddShipping", "", new { @class = "btn btn-outline-light w-100 mt-3" })
+
+<h2 class="text-center text-light mt-3">Gestisci Le Spedizioni Esistenti</h2>
+<div class="border border-light p-5">
+    @foreach (ShippingManager.Models.Shipping s in Model)
+    {
+        <div class="card bg-transparent fs-4 text-light mt-2">
+            <div class="card-header">
+                Identificativo Spedizione: <strong>@s.IdShipping</strong>
+
+            </div>
+            <div class="card-body">
+
+                <p class="card-text">Destinazione: @s.Destination</p>
+                <p class="card-text">Destinatario: @s.Addressee</p>
+                <p class="card-text">Stato della spedizione: @s.State</p>
+                <p class="card-text">Consegna stimata: @s.ExDelivery.ToShortDateString()</p>
+                <p class="card-text">Identificativo Mittente: @s.IdCustomer</p>
+                <div>
+                    @Html.ActionLink("Aggiorna stato", "UpdateStatus", new { id = s.IdShipping }, new { @class = "btn btn-outline-light" })
+                    @Html.ActionLink("Elimina", "DeleteShipping", new { id = s.IdShipping }, new { @class = "btn btn-outline-light" })
+                </div>
+            </div>
+        </div>
+    }
+</div>

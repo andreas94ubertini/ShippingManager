@@ -1,0 +1,52 @@
+﻿@model ShippingManager.Models.Update
+
+@{
+    ViewBag.Title = "UpdateStatus";
+}
+
+
+<h2 class="text-center text-light mt-3">Inserisci un nuovo stato per la spedizione</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form p-5 border border-light mt-2">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group d-flex flex-column align-items-center">
+            @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-6 text-light fs-4" })
+            <div class="col-12 col-lg-6">
+                @Html.DropDownListFor(model => model.State, new SelectList(ViewBag.ListStatus, "Value", "Text"), new { @class = "form-select" })
+                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-flex flex-column align-items-center">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-6 text-light fs-4" })
+            <div class="col-12 col-lg-6">
+                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-flex flex-column align-items-center">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-6 text-light fs-4" })
+            <div class="col-12 col-lg-6">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-12 mt-3 text-center">
+                <input type="submit" value="Conferma" class="btn btn-outline-light fs-5" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ShippingManager.Models.Customer>
+
+@{
+    ViewBag.Title = "Lista completa dei clienti";
+}
+@Html.ActionLink("Registra Nuovo Cliente", "AddCustomer","", new { @class = "btn btn-outline-light w-100 mt-3" })
+<h2 class="text-center text-light mt-3">Gestisci Le Spedizioni Esistenti</h2>
+<div class="border border-light p-5">
+    @foreach (ShippingManager.Models.Customer c in Model)
+    {
+        <div class="card bg-transparent fs-4 text-light mt-2">
+            <div class="card-header">
+                Identificativo Cliente: <strong>@c.IdCustomer</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Nome: @c.Name</p>
+                <p class="card-text">Cognome: @c.Surname</p>
+                <p class="card-text">Tipo di cliente:<span>@(c.IsAzienda ? " Azienda" : " Privato")</span></p>
+                <p class="card-text">@(c.IsAzienda ? "Partita Iva" : "Codice Fiscale"): <span>@(c.IsAzienda ? c.PIva : c.Cf)</span></p>
+                <div>
+                    @Html.ActionLink("Modifica", "#", new { id = 1 }, new { @class = "btn btn-outline-light" })
+                    @Html.ActionLink("Elimina", "DeleteCustomer", new { id = c.IdCustomer }, new { @class = "btn btn-outline-light" })
+                </div>
+            </div>
+        </div>
+    }
+</div>

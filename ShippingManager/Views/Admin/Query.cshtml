@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Query";
+}
+<div class="d-flex gap-3 align-items-center justify-content-center mt-3">
+    <button type="button" id="groupByDest" class="btn btn-outline-light">Raggruppa per destinazione</button>
+    <button type="button" id="TotalOnDlivery" class="btn btn-outline-light">Totale in consegna oggi</button>
+    <button type="button" id="NotDelivered" class="btn btn-outline-light">Totale non consegnate</button>
+</div>
+<div class="border border-light text-light fs-4 p-5 mt-2">
+    <h3 id="listTitle" class="text-center mb-1"></h3>
+    <ul id="list">
+    </ul>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/QueryScript.js"></script>
+}

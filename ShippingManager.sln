@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShippingManager", "ShippingManager\ShippingManager.csproj", "{6BC9C433-14DE-43D6-B86D-DB4963BF9DA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BC9C433-14DE-43D6-B86D-DB4963BF9DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC9C433-14DE-43D6-B86D-DB4963BF9DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC9C433-14DE-43D6-B86D-DB4963BF9DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC9C433-14DE-43D6-B86D-DB4963BF9DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24B9AD55-FD31-429F-B488-58B1CC8568C9}
+	EndGlobalSection
+EndGlobal

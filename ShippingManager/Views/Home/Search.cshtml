@@ -1,0 +1,61 @@
+﻿@model ShippingManager.Models.SearchInfo
+
+@{
+    ViewBag.Title = "Cerca Spedizione";
+}
+
+@if (TempData["NotFound"] != null)
+{
+    <div class="alert alert-danger mt-2">
+        @TempData["NotFound"]
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="border p-lg-5 mt-5">
+        @Html.AntiForgeryToken()
+        <h2 class="text-center text-light">Ricerca Spedizione</h2>
+        <div class="form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.CustomerIdentity, htmlAttributes: new { @class = "control-label col-5 text-light fs-5" })
+                <div class="col-5">
+                    @Html.TextBoxFor(model => model.CustomerIdentity, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CustomerIdentity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.IdShipping, htmlAttributes: new { @class = "control-label col-5 text-light fs-5" })
+                <div class="col-5">
+                    @Html.TextBoxFor(model => model.IdShipping, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IdShipping, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.IsAzienda, htmlAttributes: new { @class = "control-label col-5 text-light fs-5" })
+                <div class="col-5">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.IsAzienda)
+                        @Html.ValidationMessageFor(model => model.IsAzienda, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-light fs-4 w-50"><i class="bi bi-search"></i> Cerca</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
